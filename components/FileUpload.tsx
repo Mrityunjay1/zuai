@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import Upload from "../app/assets/upload_file.png";
 import { useFileStore } from "@/hooks/useFileStore";
+import { Button } from "./ui/button";
 
 interface FileUploadProps {
   onFileSelect: (file: File) => void;
@@ -12,6 +13,7 @@ export default function FileUpload({ onFileSelect }: FileUploadProps) {
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { files, addFile, removeFile, clearFiles } = useFileStore();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = useCallback(
     (selectedFile: File) => {
@@ -62,9 +64,14 @@ export default function FileUpload({ onFileSelect }: FileUploadProps) {
     },
     [handleFile]
   );
+  const handleButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full">
       <label
         className={`flex flex-col items-center justify-center w-full  border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 ${
           dragActive ? "border-blue-500 bg-blue-50" : ""
@@ -87,10 +94,20 @@ export default function FileUpload({ onFileSelect }: FileUploadProps) {
         <input
           type="file"
           className="hidden"
-          onChange={handleChange}
           accept=".pdf"
+          ref={fileInputRef}
+          onChange={handleChange}
         />
       </label>
+      <div className="flex items-center bg-slate-100 justify-center mt-4">
+        <Button
+          onClick={handleButtonClick}
+          variant="outline"
+          className="rounded-full text-[#6947BF]"
+        >
+          Upload File
+        </Button>
+      </div>
     </div>
   );
 }

@@ -40,19 +40,8 @@ export default function PlaceholderContent() {
     console.log("Selected file:", file);
   };
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files ? event.target.files[0] : null;
-    if (file) {
-      addFile(file);
-    }
-  };
-
   const handleRemove = (fileName: string) => {
     removeFile(fileName);
-  };
-
-  const handleClear = () => {
-    clearFiles();
   };
 
   return (
@@ -67,25 +56,6 @@ export default function PlaceholderContent() {
             <CardContent className="p-4 sm:p-6">
               <div className=" rounded-lg p-4">
                 <FileUpload onFileSelect={handleFileSelect} />
-                <h2>Uploaded Files</h2>
-                <ul>
-                  {files.map((file, index) => (
-                    <li key={index}>
-                      <span>{file.name}</span>
-                      <button onClick={() => handleRemove(file.name)}>
-                        Remove
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex items-center justify-center mt-4">
-                  <Button
-                    variant="outline"
-                    className="rounded-full text-[#6947BF]"
-                  >
-                    Upload File
-                  </Button>
-                </div>
               </div>
               <div className="mt-6">
                 <p className="font-medium text-slate-500 mb-2">
@@ -135,9 +105,12 @@ export default function PlaceholderContent() {
         </div>
       </div>
       <div className="mt-12">
-        <h2 className="text-xl font-semibold mb-4">CourseWorks</h2>
+        <h2 className="text-xl text-slate-400 font-semibold mb-4">
+          CourseWorks
+        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {files.length < 1 && <div>No Course work found</div>}
           {files.map((file, index) => {
             return (
               <div key={index}>
