@@ -4,6 +4,7 @@ import { PanelsTopLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/mode-toogle";
+import Desktop from "../app/assets/desktop.jpg";
 
 export default function Home() {
   return (
@@ -63,7 +64,7 @@ export default function Home() {
           </section>
           <div className="w-full flex justify-center relative">
             <Image
-              src="/demo-light-min.png"
+              src={Desktop}
               width={1080}
               height={608}
               alt="demo"
@@ -71,7 +72,7 @@ export default function Home() {
               className="border rounded-xl shadow-sm dark:hidden"
             />
             <Image
-              src="/demo-dark-min.png"
+              src={Desktop}
               width={1080}
               height={608}
               alt="demo-dark"
@@ -79,14 +80,14 @@ export default function Home() {
               className="border border-zinc-600 rounded-xl shadow-sm hidden dark:block dark:shadow-gray-500/5"
             />
             <Image
-              src="/demo-mobile-light-min.png"
+              src={Desktop}
               width={228}
               height={494}
               alt="demo-mobile"
               className="border rounded-xl absolute bottom-0 right-0 hidden lg:block dark:hidden"
             />
             <Image
-              src="/demo-mobile-dark-min.png"
+              src={Desktop}
               width={228}
               height={494}
               alt="demo-mobile"
