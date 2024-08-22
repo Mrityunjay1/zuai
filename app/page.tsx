@@ -15,8 +15,8 @@ export default function Home() {
             className="flex justify-start items-center hover:opacity-85 transition-opacity duration-300"
           >
             <PanelsTopLeft className="w-6 h-6 mr-3" />
-            <span className="font-bold">shadcn/ui sidebar</span>
-            <span className="sr-only">shadcn/ui sidebar</span>
+            <span className="font-bold">ZuAI</span>
+            <span className="sr-only">ZuAI</span>
           </Link>
           <nav className="ml-auto flex items-center gap-2">
             <Button
@@ -37,11 +37,11 @@ export default function Home() {
         <div className="container relative pb-10">
           <section className="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
             <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
-              Sidebar example built on top of shadcn/ui
+              Dshboard example built on top of shadcn/ui
             </h1>
             <span className="max-w-[750px] text-center text-lg font-light text-foreground">
-              A stunning and functional retractable sidebar for Next.js using
-              shadcn/ui complete with desktop and mobile responsiveness.
+              A stunning and functional Dashboard for Next.js using shadcn/ui
+              complete with desktop and mobile responsiveness.
             </span>
             <div className="flex w-full items-center justify-center space-x-4 py-4 md:pb-6">
               <Button variant="default" asChild>
